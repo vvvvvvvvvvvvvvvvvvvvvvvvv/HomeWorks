@@ -53,6 +53,7 @@ class ClientHandler extends Thread {
             writeThread.start();
 
             while (true) {
+                //Останавливает цилк пока не придут данные
                 String text = dataInputStream.readUTF();
                 System.out.println(text);
             }
@@ -66,6 +67,7 @@ class ClientHandler extends Thread {
         finally {
             System.out.println("Клиент отключился");
             EchoServer.clientCount.decrementAndGet();
+
         }
     }
 }
